@@ -22,7 +22,7 @@ export class HeroDetailComponent implements OnInit {
     this.getHero();
   }
 
-  @Input() hero: Hero;
+  hero: Hero;
 
   getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
