@@ -17,10 +17,12 @@ export class HeroService {
     private http: HttpClient) { }
 
   private heroesUrl = 'api/heroes'; // URL to web api
-
+  
+  //GET heroes from the server
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
+        tap(heroes => this.log('fetched heroes')),
         catchError(this.handleError('getHeroes', []))
       );
   }
